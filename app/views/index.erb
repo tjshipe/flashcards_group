@@ -7,10 +7,12 @@
       <th>Option</th>
       <th>Link</th>
     </tr>
-    <tr>
-      <td>Play!</td>
-      <td><a href="/cards/play">Click Me!</a></td>
-    </tr>
+      <% @decks.each do |deck| %>
+        <tr>
+          <td><%= deck.title %></td>
+          <td><a href="/decks/<% deck.id %>/play">Play!</a></td>
+        </tr>
+      <% end %>
     
   </table>
 </div>
