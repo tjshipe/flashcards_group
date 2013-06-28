@@ -18,3 +18,21 @@ post '/decks/:deck_id/play' do
     erb :show_card
   end
 end
+
+get '/decks/:deck_id' do
+  @deck = Deck.find(params[:deck_id])
+  erb :edit_deck
+end
+
+post '/decks/delete' do
+  Deck.find(params[:deck_id]).destroy
+
+  redirect "/"
+end
+
+post '/decks/create' do
+  deck = Deck.find_or_create_by_id(params[:deck]['id'])
+  deck.update_attributes(params[:deck])
+
+  redirect "decks/#{deck.id}"
+end
