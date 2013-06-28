@@ -2,7 +2,7 @@ enable :sessions
 
 
 get '/' do
-  @decks = Deck.all
+  @decks = session[:user].decks.all
   erb :index
 end
 
