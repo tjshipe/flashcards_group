@@ -2,8 +2,8 @@ enable :sessions
 
 
 get '/' do
-  @decks = session[:user].decks.all
-  erb :index
+  @user = User.find(session[:user].id)
+  erb :list_decks
 end
 
 get '/register' do

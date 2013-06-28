@@ -1,0 +1,17 @@
+<% if @deck %>
+  <% deck = @deck %>
+  <% submit_value = 'Rename Deck' %>
+<% else %> 
+  <% deck = Deck.new %>
+  <% submit_value = 'Add Deck' %>
+<% end %>
+
+<form action="/decks/create" method="post">
+  <input type='hidden' name='deck[id]' value='<%= deck.id %>'> 
+  <input type='hidden' name='deck[user_id]' value='<%= @user.id %>'> 
+  <label>Title:<br>
+    <input type="text" name='deck[title]' value='<%= deck.title %>'>
+  </label>
+  <input type="submit" value='<%= submit_value %>'>
+</form>
+

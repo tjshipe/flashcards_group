@@ -11,7 +11,7 @@ post '/decks/:deck_id/play' do
   @correct = true if params[:card]['guess'] == 'isuckatruby'
   if @correct
     puts "It WORKS!"
-    @card = Card.all.sample
+    @card = Deck.find(params[:deck_id]).cards.sample
     erb :show_card
   else
     puts "It fucked up"
@@ -21,6 +21,7 @@ end
 
 get '/decks/:deck_id' do
   @deck = Deck.find(params[:deck_id])
+  @user = @deck.user
   erb :edit_deck
 end
 
