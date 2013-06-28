@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <h1>Welcome to Awesome Flashcards!</h1>
+      <div class="hero-unit">
+
+        
+        <p><%= @card[:front] %></p>        
+        
+        <form action="/cards/play" method="post" class="form form-inline">
+          <input type="text" name="card[guess]">
+          <input type="hidden" value="<%= @card[:id] %>" name="card[id]">
+          <input type="submit" value="Submit Answer!" class="btn btn-success">
+        </form>  
+    
+      </div>
+    </div>
+  </div>
+</div>
