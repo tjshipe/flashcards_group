@@ -1,4 +1,4 @@
-def guess_correct?
+def correct?
   # return params[:card] if params
-  @card.correct?(params[:card]['guess'])
+  @card.guess_correct?(params[:card]['guess'])
 end
