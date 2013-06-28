@@ -1,16 +1,19 @@
-get '/cards/play' do
-  @card = Card.all.sample
-  erb :show_card
+post '/cards/delete' do
+  card = Card.find(params[:card_id])
+  deck_id = card.deck.id
+  card.destroy
+
+  redirect "/decks/#{deck_id}"
 end
 
-post '/cards/play' do
-p params
-  @card = Card.find(params[:card]['id'])
-  if @card.guess_correct?(params[:card]['guess'])
-    puts "It WORKS!"
-    redirect '/cards/play'
-  else
-    puts "It fucked up"
-    erb :show_card
-  end
+post '/cards/create' do
+  card = Card.find_or_create_by_id(params[:card]['id'])
+  card.update_attributes(params[:card])
+
+  redirect "/decks/#{card.deck_id}"
+end
+
+get '/cards/:card_id' do
+  card = Card.find(params[:card_id])
+  erb :edit_card
 end
