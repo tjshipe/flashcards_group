@@ -2,8 +2,13 @@ enable :sessions
 
 
 get '/' do
-  @user = User.find(session[:user].id)
-  erb :list_decks
+  p session[:user_id]
+  if session[:user_id]
+    @user = User.find(session[:user_id])
+    erb :list_decks
+  else
+    redirect '/login'
+  end
 end
 
 get '/register' do
@@ -22,6 +27,12 @@ get '/login' do
 end
 
 post '/login' do
-  session[:user] = User.find_by_email(params[:user][:email])
+  session[:user_id] = User.find_by_email(params[:user][:email]).id
+  p session
+  redirect '/'
+end
+
+get '/logout' do
+  session.clear
   redirect '/'
 end
