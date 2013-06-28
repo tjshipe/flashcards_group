@@ -1,3 +1,10 @@
 class Card < ActiveRecord::Base
-  # Remember to create a migration!
+
+  def guess_correct?(guess)
+    if guess == self.back
+      return true
+    else
+      return false
+    end
+  end
 end
