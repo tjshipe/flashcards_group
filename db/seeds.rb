@@ -1,3 +1,7 @@
-File.open('flashcard_samples.txt').each_slice(3) do |line|
-  Card.create(front: line[0].chomp, back: line[1].chomp)
+10.times do
+  Deck.create(title: Faker::Name.name)
+end
+
+100.times do
+  Card.create(front: Faker::Lorem.word, back: Faker::Lorem.sentence, deck_id: rand(1..10))  
 end
