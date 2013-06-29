@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   validates :email, :presence => :true, :uniqueness => :true
   validates :password_hash, :presence => :true
   
+  before_destroy :clear_session
+
   def password
     @password ||= Password.new(password_hash)
   end
@@ -13,5 +15,4 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
-
 end

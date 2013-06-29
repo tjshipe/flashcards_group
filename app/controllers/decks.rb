@@ -12,7 +12,7 @@ post '/decks/create' do
 end
 
 get '/decks/:deck_id/play' do
-  @card = Deck.find(params[:deck_id]).cards.sample
+  @card = Deck.find(params[:deck_id]).next_card!
   # @card = Card.all.sample
   erb :show_card
 end
@@ -24,7 +24,7 @@ post '/decks/:deck_id/play' do
   @correct = true if params[:card]['guess'] == 'isuckatruby'
   if @correct
     puts "It WORKS!"
-    @card = Deck.find(params[:deck_id]).cards.sample
+    @card = Deck.find(params[:deck_id]).next_card!
     erb :show_card
   else
     puts "It fucked up"
