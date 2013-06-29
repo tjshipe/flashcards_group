@@ -1,2 +1,11 @@
-<%= erb :_edit_card %>
+<div class="container-fluid">
+  <%= erb :_edit_card %>
 
+
+  <h2>Delete Card:</h2>
+  <form id='delete_form' action="/cards/delete" method="post">
+    <input type='hidden' name='card_id' value='<%= @card.id %>'> 
+    <input type="submit" value='Delete Card' class="btn btn-danger">
+  </form>
+
+</div
