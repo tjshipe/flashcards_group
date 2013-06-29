@@ -638,7 +638,7 @@ a:focus {
   padding-left: 20px;
   *zoom: 1;
   max-width: 940px;
-  margin:0 auto;
+  margin:60px auto;
 }
 
 .container-fluid:before,

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <h3><%= @deck.title %></h3>
   <p>What would you like to do?</p>
 
@@ -10,10 +10,10 @@
       <% @deck.cards.each do |card| %>
         <tr>
           <td><%= card.back %></td>
-          <td><a href="/cards/<%= card.id %>">Edit</a></td>
-          <td><form id='delete_form' action="/cards/delete" method="post">
+          <td class="narrow-cell"><a href="/cards/<%= card.id %>">Edit</a></td>
+          <td class="narrow-cell"><form id='delete_form' action="/cards/delete" method="post">
             <input type='hidden' name='card_id' value='<%= card.id %>'> 
-            <input type="submit" value='Delete'>
+            <input type="submit" value='Delete' class="btn btn-danger btn-small">
           </form></td>
         </tr>
       <% end %>
@@ -22,5 +22,12 @@
   </table>
 
   <%= erb :_edit_card %>
+
+
+  <form id='delete_form' action="/decks/delete" method="post">
+    <input type='hidden' name='deck_id' value='<%= @deck.id %>'> 
+    <input type="submit" value='Delete Entire Deck' class="btn btn-danger btn-large">
+  </form>
+
 </div>
 

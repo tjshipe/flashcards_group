@@ -1,13 +1,13 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span12">
-      <h1>Welcome to Awesome Flashcards!</h1>
+      <h1>Playing on <%= @card.deck.title %> deck</h1>
       <div class="hero-unit">
         
         <% unless @correct.nil? %>
           <% if @correct %>
             <div class="alert alert-success">
-              You were correct!
+              <i class="icon-check"></i> You were correct!
             </div>
           <% else %>
             <div class="alert alert-error">
@@ -24,6 +24,7 @@
         </form>  
     
       </div>
+      <a href="/"><i class="icon-mail-reply"></i> Return to list</a>
     </div>
 
   </div>

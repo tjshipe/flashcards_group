@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <h1>Welcome to Awesome Flashcards!</h1>
   <p>What would you like to do?</p>
 
@@ -10,12 +10,8 @@
       <% @user.decks.each do |deck| %>
         <tr>
           <td><%= deck.title %></td>
-          <td><a href="/decks/<%= deck.id %>/play">Play!</a></td>
-          <td><a href="/decks/<%= deck.id %>">Edit</a></td>
-          <td><form id='delete_form' action="/decks/delete" method="post">
-            <input type='hidden' name='deck_id' value='<%= deck.id %>'> 
-            <input type="submit" value='Delete'>
-          </form></td>
+          <td class="narrow-cell"><a href="/decks/<%= deck.id %>/play">Play!</a></td>
+          <td class="super-narrow-cell"><a href="/decks/<%= deck.id %>" class="text-center"><i class="icon-edit"></i></a></td>
         </tr>
       <% end %>
     

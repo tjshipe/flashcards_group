@@ -3,3 +3,19 @@
   padding: 0;
   width: 35px;
 }
+.navbar .reg-text {
+  display: block;
+  float: left;
+  padding: 10px 20px 10px;
+  margin-left: -20px;
+  font-size: 14px;
+  font-weight: 200;
+  color: #ffffff;
+  text-shadow: 0 1px 0 #ce4213;
+}
+.narrow-cell {
+  width: 60px;
+}
+.super-narrow-cell {
+  width: 15px;
+}
