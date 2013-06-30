@@ -21,7 +21,8 @@
 
   <h2>Delete Deck:</h2>
   <form id='delete_form' action="/decks/delete" method="post">
-    <input type='hidden' name='deck_id' value='<%= @deck.id %>'> 
+    <input type='hidden' name='deck_id' value='<%= @deck.id %>'>
+    <input type='hidden' name='user_id' value='<%= @user.id %>'> 
     <input type="submit" value='Delete Entire Deck' class="btn btn-danger">
   </form>
 

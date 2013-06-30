@@ -1,19 +1,14 @@
-<% if @card %>
-  <% card = @card %>
-  <% deck_id = card.deck.id %>
-<% else %> 
-  <% card = Card.new %>
-  <% deck_id = @deck.id %>
-<% end %>
+
 
 <form action="/cards/create" method="post">
-  <input type='hidden' name='card[id]' value='<%= card.id %>'> 
-  <input type='hidden' name='card[deck_id]' value='<%= deck_id %>'> 
+  <input type='hidden' name='user_id' value='<%= @user.id %>'> 
+  <input type='hidden' name='card[id]' value='<%= @card.id %>'> 
+  <input type='hidden' name='card[deck_id]' value='<%= @deck.id %>'> 
   <label>Back:<br>
-    <input type="text" name='card[back]' value='<%= card.back %>'>
+    <input type="text" name='card[back]' value='<%= @card.back %>'>
   </label>
   <label>Front:<br>
-    <textarea name='card[front]'><%= card.front %></textarea>
+    <textarea name='card[front]'><%= @card.front %></textarea>
   </label>
   <input type="submit" value='Add Card' class="btn btn-success btn-large">
 </form>

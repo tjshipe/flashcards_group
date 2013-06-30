@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
+
+  def cards
+    Card.joins('JOIN decks ON cards.deck_id = decks.id').joins('JOIN users ON decks.user_id = users.id').where('users.id = ?', id)
+  end
 end

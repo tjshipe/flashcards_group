@@ -7,6 +7,7 @@
 <% end %>
 
 <form action="/decks/create" method="post" class="form form-inline">
+  <input type='hidden' name='user_id' value='<%= @user.id %>'> 
   <input type='hidden' name='deck[id]' value='<%= deck.id %>'> 
   <input type='hidden' name='deck[user_id]' value='<%= @user.id %>'> 
   <label>Title:<br>
