@@ -22,14 +22,12 @@ post '/decks/:deck_id/play' do
   @card = Card.find(params[:card]['id'])
   @correct = @card.guess_correct?(params[:card]['guess'])
   @correct = true if params[:card]['guess'] == 'isuckatruby'
-  if @correct
-    puts "It WORKS!"
+  # if @correct
     @card = Deck.find(params[:deck_id]).next_card!
     erb :show_card
-  else
-    puts "It fucked up"
-    erb :show_card
-  end
+  # else
+    # erb :show_card
+  # end
 end
 
 get '/decks/:deck_id' do
