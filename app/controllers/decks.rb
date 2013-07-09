@@ -26,7 +26,12 @@ post '/decks/:deck_id/play' do
   @correct = @card.guess_correct?(params[:card][:guess])
   @correct = true if params[:card][:guess] == 'isuckatruby'
   @card = @deck.next_card!
-  erb :show_card
+  
+  if request.xhr?
+    erb :_hero_unit, :layout => false
+  else
+    erb :show_card
+  end
 end
 
 post '/decks/delete' do

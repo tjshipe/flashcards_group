@@ -1,0 +1,19 @@
+
+<% unless @correct.nil? %>
+  <% if @correct %>
+    <div class="alert alert-success">
+      <i class="icon-check"></i> You were correct!
+    </div>
+  <% else %>
+    <div class="alert alert-error">
+      You fucked up
+    </div>
+  <% end %>
+<% end %>
+<p><%= @card[:front] %></p>        
+
+<form action="/decks/<%= params[:deck_id] %>/play" method="post" class="form form-inline" id="flash-card">
+  <input type="text" name="card[guess]">
+  <input type="hidden" value="<%= @card[:id] %>" name="card[id]">
+  <input type="submit" value="Submit Answer!" class="btn btn-success">
+</form>  
